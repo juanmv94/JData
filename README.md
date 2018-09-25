@@ -60,7 +60,7 @@ A single byte is used to specify the data type in **data structure**. Special ty
 	    | | |  data type value / first 5 most significant bits from structure ID
 	    | | Is array of ...? (1=array,0=no array)
 	    | 1=Structure ID, 0= data type value
-		Is referenced shared data? (1=yes,0=no)
+	    Is referenced shared data? (1=yes,0=no)
 		
 The posible data type values are the following:
 
@@ -126,3 +126,21 @@ The following picture shows the content of the data values for the previous exam
 * Referenced values are just an integer with the referenced value ID that must match the data type. Integer type depends on the number of referenced value IDs defined. Ex: if we are defining referenced value ID=255 we use UINT8 as integer type, but we start using UINT16 from referenced value ID=256.
 * After the last value from the main structure is read, we start reading the boolean bits. In our example we only have 2 booleans for 2 '*is_adult*' values. The first boolean is the least significant bit from this first (and last) byte 1=true, and the second boolean is the second least significant bit 0=false.
 
+### Whatever type limitations
+Here are some rules and limitations from the whatever JData type:
+* Since whatever data type allows different types, arrays of whatever types are not allowed. However whatever type allows array types like UINT8 arrays, and you can make and array of structures containing a whatever type.
+* You can't set a whatever type data value to whatever type. if you do, an infinite loop would occur that would cause a black hole to swallow the entire universe.
+
+## C++ library
+I tried to make the C++ library as easy as posible. Just check the example ;)
+
+TODO
+
+* JDD parser is not implemented
+* Test on a big endian machine and add compatibility with non char arrays
+
+## Javascript/Java library
+Error 404 not found. Try it again in a few decades.
+
+## Visual Basic library
+Error -131231567 geek overflow
